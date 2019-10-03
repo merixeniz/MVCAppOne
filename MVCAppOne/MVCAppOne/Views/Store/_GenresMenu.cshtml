@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MVCAppOne.Models.Genre>
+@using MVCAppOne.Infrastructure
+
+<nav class="genres-vertical">
+    <ul>
+        @foreach (var genre in Model)
+        {
+            <li>
+                <a href="@Url.Action("List", "Store", new { genrename = genre.Name.ToString() })"
+                   style="background-image: url(@Url.GenreIconPath(genre.IconFileName)); ">
+                    @genre.Name
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
